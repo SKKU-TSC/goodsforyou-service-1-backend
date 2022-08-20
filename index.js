@@ -2,6 +2,9 @@ const express = require('express');
 const http = require('http');
 const mongoose = require('mongoose');
 
+const cors = require('cors');
+const { Server } = require('socket.io');
+
 require('dotenv').config();
 
 const app = express();
@@ -15,8 +18,8 @@ mongoose
   .catch(() => console.log('mongodb connection failed'));
 
 //LISTENING
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Server listening on port ${process.env.PORT}`);
 });
 
 //CORS
