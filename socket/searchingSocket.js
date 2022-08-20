@@ -6,9 +6,9 @@ const searchingSocket = (socketIo) => {
     socket.on('search', async (searchingWord) => {
       try {
         //단순 매칭 단어
-        const matchedItemsByItem = matchItem(searchingWord);
+        const matchedItemsByItem = await matchItem(searchingWord);
         //Feature 매칭 단어
-        const matchedItemsByFeature = matchFeature(searchingWord);
+        const matchedItemsByFeature = await matchFeature(searchingWord);
         const socketRequest = {
           status: 'success',
           matchedItemsByItem,
