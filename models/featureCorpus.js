@@ -9,10 +9,12 @@ const featureCorpusSchema = new mongoose.Schema({
   },
   defaultItems: {
     type: [itemCorpusSchema],
+    default: [],
   },
   //vector: 백분율
   extractedItems: {
     type: [{ vector: Number, item: itemCorpusSchema }],
+    default: [],
   },
 });
 
