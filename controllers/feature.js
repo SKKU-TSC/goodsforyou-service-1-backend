@@ -1,6 +1,6 @@
 const FeatureCorpus = require('../models/featureCorpus');
 
-const addItemsToFeature = async (req, res) => {
+const addItemToFeature = async (req, res) => {
   const feature = await FeatureCorpus.findOne({
     featureName: req.body.featureName,
   });

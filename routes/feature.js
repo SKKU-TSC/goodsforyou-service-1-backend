@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const { createFeature, addItemsToFeature } = require('../controllers/feature');
+const { createFeature, addItemToFeature } = require('../controllers/feature');
 
 router.post('/', createFeature);
 
-router.patch('/item', addItemsToFeature);
+router.patch('/item', addItemToFeature);
 
 module.exports = router;
