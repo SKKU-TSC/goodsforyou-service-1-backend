@@ -43,6 +43,6 @@ const createFeature = (req, res) => {
     );
 };
 module.exports = {
-  addItemsToFeature,
+  addItemToFeature,
   createFeature,
 };
