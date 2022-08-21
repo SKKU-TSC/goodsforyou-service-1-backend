@@ -33,6 +33,13 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+//ROUTES
+const featureRoute = require('./routes/feature');
+const itemRoute = require('./routes/item');
+
+app.use('/features', featureRoute);
+app.use('/items', itemRoute);
+
 //socket
 const server = http.createServer(app);
 const io = new Server(server, {
