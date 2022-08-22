@@ -18,11 +18,6 @@ mongoose
   .then(() => console.log('Connected to mongodb'))
   .catch(() => console.log('mongodb connection failed'));
 
-//LISTENING
-app.listen(process.env.PORT, () => {
-  console.log(`Server listening on port ${process.env.PORT}`);
-});
-
 //CORS
 const corsOptions = {
   origin:
@@ -56,3 +51,8 @@ const io = new Server(server, {
 
 const searchingSocket = require('./socket/searchingSocket');
 searchingSocket(io);
+
+//LISTENING
+server.listen(process.env.PORT, () => {
+  console.log(`Server listening on port ${process.env.PORT}`);
+});
