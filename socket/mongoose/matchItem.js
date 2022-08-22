@@ -1,4 +1,4 @@
-const ItemCorpus = require('../../models/itemCorpus');
+const { ItemCorpus } = require('../../models/itemCorpus');
 
 const matchItems = async (searchingWord) => {
   const searchedItemsWithItem = await ItemCorpus.find({
