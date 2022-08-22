@@ -9,7 +9,7 @@ const itemCorpusSchema = new mongoose.Schema({
 });
 
 const ItemCorpus = mongoose.model('ItemCorpus', itemCorpusSchema);
-module.exports = ItemCorpus;
 module.exports = {
+  ItemCorpus,
   itemCorpusSchema: itemCorpusSchema,
 };

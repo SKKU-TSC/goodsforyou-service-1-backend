@@ -1,4 +1,4 @@
-const ItemCorpus = require('../models/itemCorpus');
+const { ItemCorpus } = require('../models/itemCorpus');
 
 const createItem = (req, res) => {
   const item = new ItemCorpus(req.body);
