@@ -16,20 +16,35 @@ const getResult = async (req, res) => {
       });
     } else {
       for (let i = 1; i < options.length; i++) {
-        usingItems = usingItems.filter(async (item) => {
-          const usingFeature = await FeatureCorpus.findOne({
-            featureName: options[i][0],
-          });
-          if (options[i][1]) {
-            return usingFeature.defaultItems.indexOf(item) >= 0;
-          } else {
-            return usingFeature.defaultItems.indexOf(item) === -1;
-          }
+        const feature = await FeatureCorpus.findOne({
+          featureName: options[i][0],
         });
+        if (options[i][1]) {
+          usingItems = usingItems.filter((using) => {
+            let isPassed = false;
+            feature.defaultItems.forEach((dItem) => {
+              if (using.itemName === dItem.itemName) {
+                isPassed = true;
+              }
+            });
+            return isPassed;
+          });
+        } else {
+          usingItems = usingItems.filter((using) => {
+            let isPassed = true;
+            feature.defaultItems.forEach((dItem) => {
+              if (using.itemName === dItem.itemName) {
+                isPassed = false;
+              }
+            });
+            return isPassed;
+          });
+        }
       }
       res.status(200).json({ status: 'success', usingItems });
     }
   } catch (err) {
+    console.log(err);
     res.status(400).json({ status: 'fail', err });
   }
 };

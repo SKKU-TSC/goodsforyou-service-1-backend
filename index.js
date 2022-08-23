@@ -8,6 +8,7 @@ const { Server } = require('socket.io');
 require('dotenv').config();
 
 const app = express();
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //몽고디비 연결
