@@ -32,9 +32,11 @@ app.use(cors(corsOptions));
 //ROUTES
 const featureRoute = require('./routes/feature');
 const itemRoute = require('./routes/item');
+const akinatorRoute = require('./routes/akinator');
 
 app.use('/features', featureRoute);
 app.use('/items', itemRoute);
+app.use('/akinator', akinatorRoute);
 
 //socket
 const server = http.createServer(app);
