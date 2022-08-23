@@ -14,7 +14,6 @@ const featureCorpusSchema = new mongoose.Schema({
   //vector: 백분율
   extractedItems: {
     type: [{ vector: Number, item: itemCorpusSchema }],
-    default: [],
   },
 });
 
