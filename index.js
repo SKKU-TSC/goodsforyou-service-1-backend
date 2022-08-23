@@ -22,7 +22,7 @@ mongoose
 const corsOptions = {
   origin:
     process.env.NODE_ENV === 'production'
-      ? 'http://localhost:3000'
+      ? 'http://kurlymoly.com'
       : 'http://localhost:3000',
   credentials: true,
 };
