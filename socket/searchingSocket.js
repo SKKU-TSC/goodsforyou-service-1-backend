@@ -4,8 +4,8 @@ const matchItem = require('./mongoose/matchItem');
 const searchingSocket = (socketIo) => {
   socketIo.on('connection', (socket) => {
     socket.on('search', async (searchingWord) => {
-      console.log("log")
-      console.log(searchingWord)
+      console.log('log');
+      console.log(searchingWord);
       try {
         //단순 매칭 단어
         const matchedItemsByItem = await matchItem(searchingWord);
@@ -16,14 +16,13 @@ const searchingSocket = (socketIo) => {
           matchedItemsByItem,
           matchedItemsByFeature,
         };
-        console.log(socketRequest)
         socket.emit('searchResult', socketRequest);
       } catch (error) {
         const socketRequest = {
           status: 'fail',
           error,
         };
-        console.log(socketRequest)
+        console.log(socketRequest);
         socket.emit('search', socketRequest);
       }
     });
